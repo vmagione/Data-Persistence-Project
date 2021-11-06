@@ -29,7 +29,7 @@ public class DataManager : MonoBehaviour
         public string playerName;
     }
 
-        public void SavePlayer()
+    public void SavePlayer()
     {
         SaveData data = new SaveData();
         data.playerName = playerName;
