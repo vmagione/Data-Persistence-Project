@@ -11,15 +11,16 @@ using UnityEngine.UI;
 
 public class MenuUIHandler : MonoBehaviour
 {
-    public string playerName;
     public TMP_InputField usernameInput;
     public void StartNew()
     {
+        SaveName();
         SceneManager.LoadScene(1);
     }
 
     public void Exit()
-    {
+    {   
+        DataManager.Instance.SavePlayer(); 
         #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();
         #else
@@ -28,7 +29,17 @@ public class MenuUIHandler : MonoBehaviour
     }
 
     public void SaveName(){
-        playerName = usernameInput.text;
-        Debug.Log(playerName);
+        DataManager.Instance.playerName = usernameInput.text;
+    }
+
+    public void SavePlayerClicked()
+    {
+        DataManager.Instance.SavePlayer();
+    }
+
+    public void LoadPlayerClicked()
+    {
+        DataManager.Instance.LoadPlayer();
+        usernameInput.text = DataManager.Instance.playerName;
     }
 }
