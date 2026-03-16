@@ -1,2 +1,19 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Ignorar shaders e arquivos gráficos do cálculo
+*.shader linguist-generated
+*.shaderlab linguist-generated
+*.hlsl linguist-generated
+*.cginc linguist-generated
+
+# Ignorar pacotes e código de terceiros
+Assets/TextMesh Pro/** linguist-vendored
+Assets/Plugins/** linguist-vendored
+Packages/** linguist-vendored
+Library/** linguist-generated
+Temp/** linguist-generated
+
+# Se quiser ignorar materiais e afins também
+*.mat linguist-generated
+*.compute linguist-generated
